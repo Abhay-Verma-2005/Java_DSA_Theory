@@ -1,5 +1,5 @@
 # Java Data Structures Guide
-https://javaes.netlify.app/
+[Check Here](https://javaes.netlify.app/)
 ---
 
 ## Table of Contents
