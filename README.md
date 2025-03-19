@@ -557,7 +557,8 @@ linkedList.size();
 ```
 
 ---
-### **j) Creating a Custom display() Method
+
+### **j) Creating a Custom display() Method**
 - If you need a display() method, you can implement it like this:
 ```java
 public void display(LinkedList<Integer> list) {
