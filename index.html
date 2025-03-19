@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Data Structures Guide</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.5in;
+      background-color: rgb(236, 246, 244);
+    }
+    .page {
+      page-break-after: always;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #6b3496;
+      text-align: center;
+      font-size: 24pt;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #761a62;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #325ebd;
+      font-size: 18pt;
+      margin-top: 30px;
+      border-bottom: 1px solid #230707;
+      padding-bottom: 5px;
+    }
+    h3 {
+      color: #3498db;
+      font-size: 14pt;
+      margin-top: 20px;
+    }
+    h4 {
+      color: #5dade2;
+      font-size: 12pt;
+      margin-top: 15px;
+    }
+    code {
+      font-family: 'Courier New', monospace;
+      background-color: #f5f5f5;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-size: 90%;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      border-left: 4px solid #be8638;
+    }
+    .method {
+      margin-bottom: 15px;
+      padding-left: 15px;
+      border-left: 3px solid #eee;
+    }
+    .toc {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 30px;
+    }
+    .toc a {
+      text-decoration: none;
+      color: #3498db;
+    }
+    .toc a:hover {
+      text-decoration: underline;
+    }
+    .toc ul {
+      list-style-type: none;
+      padding-left: 15px;
+    }
+    .toc li {
+      margin-bottom: 5px;
+    }
+    .cover {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .cover h1 {
+      font-size: 36pt;
+      border: none;
+      margin-bottom: 50px;
+    }
+    .cover p {
+      font-size: 14pt;
+      color: #666;
+    }
+    .divider {
+      border-top: 1px solid #ddd;
+      margin: 40px 0;
+    }
+    .footer {
+      text-align: center;
+      font-size: 9pt;
+      color: #777;
+      margin-top: 40px;
+    }
+    ul {
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cover Page -->
+  <div class="page cover">
+    <h1>Java Document</h1>
+    <p>Code it , sleep it , Enjoy it.</p>
+    <p style="margin-top: 100px; font-size: 11pt;">Abhay Verma</p>
+  </div>
+
+  <!-- Table of Contents -->
+  <div class="page">
+    <h1>Table of Contents</h1>
+    <div class="toc">
+      <ul>
+        <li><strong>1. <a href="#arrays">Arrays in Java</a></strong></li>
+        <li><strong>2. <a href="#strings">Strings in Java</a></strong></li>
+        <li><strong>3. <a href="#stringbuilder">StringBuilder in Java</a></strong></li>
+        <li><strong>4. <a href="#arraylist">ArrayList in Java</a></strong></li>
+        <li><strong>5. <a href="#hashset">HashSet in Java</a></strong></li>
+        <li><strong>6. <a href="#hashmap">HashMap in Java</a></strong></li>
+        <li><strong>7. <a href="#linkedlist">LinkedList in Java</a></strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Arrays in Java -->
+  <div class="page" id="arrays">
+    <h1>1. Arrays in Java</h1>
+    
+    <h2>1.1 Declaration of Arrays</h2>
+    
+    <h3>Fixed Size Declaration:</h3>
+    <pre><code>int[] arr = new int[5];</code></pre>
+    
+    <h3>Direct Initialization:</h3>
+    <pre><code>int[] arr2 = {1, 2, 3, 4, 5};</code></pre>
+    
+    <h2>1.2 Important Methods in Arrays</h2>
+    
+    <h4>a) Sorting an Array</h4>
+    <div class="method">
+      <p><strong>Method:</strong> <code>Arrays.sort(arr);</code></p>
+      <p><strong>Use:</strong> Sorts the array in ascending order.</p>
+      <p><strong>Syntax:</strong></p>
+      <pre><code>Arrays.sort(arr);</code></pre>
+    </div>
+    
+    <h4>b) Converting Array to String</h4>
+    <div class="method">
+      <p><strong>Method:</strong> <code>Arrays.toString(arr);</code></p>
+      <p><strong>Use:</strong> Converts an array into a readable string format.</p>
+      <p><strong>Syntax:</strong></p>
+      <pre><code>String str = Arrays.toString(arr);</code></pre>
+    </div>
+    
+    <h4>c) Filling an Array</h4>
+    <div class="method">
+      <p><strong>Method:</strong> <code>Arrays.fill(arr, value);</code></p>
+      <p><strong>Use:</strong> Fills the entire array with the specified value.</p>
+      <p><strong>Syntax:</strong></p>
+      <pre><code>Arrays.fill(arr, value);</code></pre>
+    </div>
+    
+    <h4>d) Searching in a Sorted Array (Binary Search)</h4>
+    <div class="method">
+      <p><strong>Method:</strong> <code>Arrays.binarySearch(arr, key);</code></p>
+      <p><strong>Use:</strong> Finds the index of the specified element in a sorted array.</p>
+      <p><strong>Syntax:</strong></p>
+      <pre><code>int index = Arrays.binarySearch(arr, key);</code></pre>
+    </div>
+    
+    <h4>e) Copying an Array with New Size</h4>
+    <div class="method">
+      <p><strong>Method:</strong> <code>Arrays.copyOf(arr, newSize);</code></p>
+      <p><strong>Use:</strong> Copies the original array into a new array with the specified size.</p>
+      <p><strong>Syntax:</strong></p>
+      <pre><code>int[] newArr = Arrays.copyOf(arr, newSize);</code></pre>
+    </div>
+    
+    <div class="footer">Page 1 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- Strings in Java -->
+  <div class="page" id="strings">
+    <h1>2. Strings in Java</h1>
+    
+    <h2>2.1 Declaration of Strings</h2>
+    <ul>
+      <li><strong>Literal Declaration:</strong> <code>String s = "Hello";</code></li>
+      <li><strong>Object Creation:</strong> <code>String s2 = new String("World");</code></li>
+    </ul>
+    
+    <h2>2.2 Important Methods in Strings</h2>
+    
+    <h4>a) Get Length of a String</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns the number of characters in the string.</p>
+      <pre><code>s.length();</code></pre>
+    </div>
+    
+    <h4>b) Get Character at a Specific Index</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Fetches the character at the given index.</p>
+      <pre><code>s.charAt(index);</code></pre>
+    </div>
+    
+    <h4>c) Convert to Uppercase</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Converts all characters to uppercase.</p>
+      <pre><code>s.toUpperCase();</code></pre>
+    </div>
+    
+    <h4>d) Convert to Lowercase</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Converts all characters to lowercase.</p>
+      <pre><code>s.toLowerCase();</code></pre>
+    </div>
+    
+    <h4>e) Check if String Contains a Substring</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns <code>true</code> if the string contains the given substring.</p>
+      <pre><code>s.contains("substring");</code></pre>
+    </div>
+    
+    <h4>f) Compare Two Strings</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Checks if two strings are equal.</p>
+      <pre><code>s.equals(s2);</code></pre>
+    </div>
+    
+    <div class="footer">Page 2 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- Strings in Java (continued) -->
+  <div class="page">
+    <h1>2. Strings in Java (continued)</h1>
+    
+    <h4>g) Concatenate Two Strings</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Joins the current string with another string.</p>
+      <pre><code>s.concat(" anotherString");</code></pre>
+    </div>
+    
+    <h4>h) Replace Characters in a String</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Replaces all occurrences of a character with another.</p>
+      <pre><code>s.replace('oldChar', 'newChar');</code></pre>
+    </div>
+    
+    <h4>i) Remove Leading & Trailing Spaces</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Trims whitespace from both ends of the string.</p>
+      <pre><code>s.trim();</code></pre>
+    </div>
+    
+    <h4>j) Split a String</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Splits the string based on a specified delimiter.</p>
+      <pre><code>s.split("delimiter");</code></pre>
+    </div>
+    
+    <h4>k) Extract a Substring</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns a part of the string from the given index range.</p>
+      <pre><code>s.substring(startIndex);
+s.substring(startIndex, endIndex);</code></pre>
+    </div>
+    
+    <div class="footer">Page 3 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- StringBuilder in Java -->
+  <div class="page" id="stringbuilder">
+    <h1>3. StringBuilder in Java</h1>
+    
+    <h2>3.1 Declaration of StringBuilder</h2>
+    <ul>
+      <li><strong>Using Constructor:</strong></li>
+    </ul>
+    <pre><code>StringBuilder sb = new StringBuilder("Hello");</code></pre>
+    
+    <h2>3.2 Important Methods in StringBuilder</h2>
+    
+    <h4>a) Append a String</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Adds the given string at the end.</p>
+      <pre><code>sb.append(" World");</code></pre>
+    </div>
+    
+    <h4>b) Insert at a Specific Position</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Inserts a string at the specified index.</p>
+      <pre><code>sb.insert(index, "text");</code></pre>
+    </div>
+    
+    <h4>c) Replace a Substring</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Replaces a portion of the string between given indexes.</p>
+      <pre><code>sb.replace(startIndex, endIndex, "newText");</code></pre>
+    </div>
+    
+    <h4>d) Delete Part of a String</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Removes characters from the specified range.</p>
+      <pre><code>sb.delete(startIndex, endIndex);</code></pre>
+    </div>
+    
+    <h4>e) Reverse the String</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Reverses the entire string.</p>
+      <pre><code>sb.reverse();</code></pre>
+    </div>
+    
+    <h4>f) Get Length of StringBuilder</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns the number of characters in the StringBuilder.</p>
+      <pre><code>sb.length();</code></pre>
+    </div>
+    
+    <h4>g) Convert StringBuilder to String</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Converts StringBuilder to a regular string.</p>
+      <pre><code>sb.toString();</code></pre>
+    </div>
+    
+    <div class="footer">Page 4 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- ArrayList in Java -->
+  <div class="page" id="arraylist">
+    <h1>4. ArrayList in Java</h1>
+    
+    <h2>4.1 Declaration of ArrayList</h2>
+    <ul>
+      <li><strong>Integer List:</strong></li>
+    </ul>
+    <pre><code>ArrayList<Integer> list = new ArrayList<>();</code></pre>
+    
+    <ul>
+      <li><strong>String List:</strong></li>
+    </ul>
+    <pre><code>ArrayList<String> strList = new ArrayList<>();</code></pre>
+    
+    <ul>
+      <li><strong>Boolean List:</strong></li>
+    </ul>
+    <pre><code>ArrayList<Boolean> boolList = new ArrayList<>();</code></pre>
+    
+    <h2>4.2 Important Methods in ArrayList</h2>
+    
+    <h4>a) Add an Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Adds an element to the list.</p>
+      <pre><code>list.add(value);</code></pre>
+    </div>
+    
+    <h4>b) Get an Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Retrieves the element at the specified index.</p>
+      <pre><code>list.get(index);</code></pre>
+    </div>
+    
+    <h4>c) Update an Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Updates the value at the given index.</p>
+      <pre><code>list.set(index, newValue);</code></pre>
+    </div>
+    
+    <h4>d) Remove an Element by Index</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Removes the element at the given index.</p>
+      <pre><code>list.remove(index);</code></pre>
+    </div>
+    
+    <div class="footer">Page 5 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- ArrayList in Java (continued) -->
+  <div class="page">
+    <h1>4. ArrayList in Java (continued)</h1>
+    
+    <h4>e) Get Size of the ArrayList</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns the number of elements in the list.</p>
+      <pre><code>list.size();</code></pre>
+    </div>
+    
+    <h4>f) Check if an Element Exists</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns <code>true</code> if the element is present.</p>
+      <pre><code>list.contains(value);</code></pre>
+    </div>
+    
+    <h4>g) Get Index of an Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns the index of the specified element, or <code>-1</code> if not found.</p>
+      <pre><code>list.indexOf(value);</code></pre>
+    </div>
+    
+    <h4>h) Clear All Elements</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Removes all elements from the list.</p>
+      <pre><code>list.clear();</code></pre>
+    </div>
+    
+    <div class="footer">Page 6 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- HashSet in Java -->
+  <div class="page" id="hashset">
+    <h1>5. HashSet in Java</h1>
+    
+    <h2>5.1 Declaration of HashSet</h2>
+    <ul>
+      <li><strong>Integer HashSet:</strong></li>
+    </ul>
+    <pre><code>HashSet<Integer> set = new HashSet<>();</code></pre>
+    
+    <h2>5.2 Important Methods in HashSet</h2>
+    
+    <h4>a) Add an Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Adds an element to the set. Duplicates are not allowed.</p>
+      <pre><code>set.add(value);</code></pre>
+    </div>
+    
+    <h4>b) Check if an Element Exists</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns <code>true</code> if the element is present in the set.</p>
+      <pre><code>set.contains(value);</code></pre>
+    </div>
+    
+    <h4>c) Remove an Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Removes the specified element from the set.</p>
+      <pre><code>set.remove(value);</code></pre>
+    </div>
+    
+    <h4>d) Get Size of the HashSet</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns the number of elements in the set.</p>
+      <pre><code>set.size();</code></pre>
+    </div>
+    
+    <h4>e) Check if the HashSet is Empty</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns <code>true</code> if the set is empty.</p>
+      <pre><code>set.isEmpty();</code></pre>
+    </div>
+    
+    <h4>f) Clear All Elements</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Removes all elements from the set.</p>
+      <pre><code>set.clear();</code></pre>
+    </div>
+    
+    <div class="footer">Page 7 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- HashMap in Java -->
+  <div class="page" id="hashmap">
+    <h1>6. HashMap in Java</h1>
+    
+    <h2>6.1 Declaration of HashMap</h2>
+    <ul>
+      <li><strong>Integer Key, String Value:</strong></li>
+    </ul>
+    <pre><code>HashMap<Integer, String> map1 = new HashMap<>();</code></pre>
+    
+    <ul>
+      <li><strong>String Key, Integer Value:</strong></li>
+    </ul>
+    <pre><code>HashMap<String, Integer> map2 = new HashMap<>();</code></pre>
+    
+    <ul>
+      <li><strong>Boolean Key, Double Value:</strong></li>
+    </ul>
+    <pre><code>HashMap<Boolean, Double> map3 = new HashMap<>();</code></pre>
+    
+    <h2>6.2 Important Methods in HashMap</h2>
+    
+    <h4>a) Add a Key-Value Pair</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Inserts a key-value pair into the HashMap.</p>
+      <pre><code>map1.put(key, value);</code></pre>
+    </div>
+    
+    <h4>b) Get a Value by Key</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Retrieves the value associated with a given key.</p>
+      <pre><code>map1.get(key);</code></pre>
+    </div>
+    
+    <h4>c) Check if a Key Exists</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns <code>true</code> if the key is present in the HashMap.</p>
+      <pre><code>map1.containsKey(key);</code></pre>
+    </div>
+    
+    <div class="footer">Page 8 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- HashMap in Java (continued) -->
+  <div class="page">
+    <h1>6. HashMap in Java (continued)</h1>
+    
+    <h4>d) Check if a Value Exists</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns <code>true</code> if the specified value is in the HashMap.</p>
+      <pre><code>map1.containsValue(value);</code></pre>
+    </div>
+    
+    <h4>e) Remove a Key-Value Pair</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Deletes the key and its associated value.</p>
+      <pre><code>map1.remove(key);</code></pre>
+    </div>
+    
+    <h4>f) Get Size of the HashMap</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns the number of key-value pairs in the HashMap.</p>
+      <pre><code>map1.size();</code></pre>
+    </div>
+    
+    <h4>g) Clear All Entries</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Removes all key-value pairs from the HashMap.</p>
+      <pre><code>map1.clear();</code></pre>
+    </div>
+    
+    <h4>h) Get All Keys</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns a set of all keys in the HashMap.</p>
+      <pre><code>map1.keySet();</code></pre>
+    </div>
+    
+    <h4>i) Get All Values</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns a collection of all values in the HashMap.</p>
+      <pre><code>map1.values();</code></pre>
+    </div>
+    
+    <div class="footer">Page 9 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- LinkedList in Java -->
+  <div class="page" id="linkedlist">
+    <h1>7. LinkedList in Java</h1>
+    
+    <h2>7.1 Declaration of LinkedList</h2>
+    <ul>
+      <li><strong>Integer LinkedList:</strong></li>
+    </ul>
+    <pre><code>LinkedList<Integer> linkedList = new LinkedList<>();</code></pre>
+    
+    <h2>7.2 Important Methods in LinkedList</h2>
+    
+    <h4>a) Add an Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Adds an element to the LinkedList.</p>
+      <pre><code>linkedList.add(value);</code></pre>
+    </div>
+    
+    <h4>b) Add Element at the Beginning</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Inserts an element at the start of the LinkedList.</p>
+      <pre><code>linkedList.addFirst(value);</code></pre>
+    </div>
+    
+    <h4>c) Add Element at the End</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Inserts an element at the end of the LinkedList.</p>
+      <pre><code>linkedList.addLast(value);</code></pre>
+    </div>
+    
+    <h4>d) Get First Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Retrieves the first element of the LinkedList.</p>
+      <pre><code>linkedList.getFirst();</code></pre>
+    </div>
+    
+    <h4>e) Get Last Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Retrieves the last element of the LinkedList.</p>
+      <pre><code>linkedList.getLast();</code></pre>
+    </div>
+    
+    <div class="footer">Page 10 | Java Data Structures Guide</div>
+  </div>
+
+  <!-- LinkedList in Java (continued) -->
+  <div class="page">
+    <h1>7. LinkedList in Java (continued)</h1>
+    
+    <h4>f) Remove First Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Deletes the first element from the LinkedList.</p>
+      <pre><code>linkedList.removeFirst();</code></pre>
+    </div>
+    
+    <h4>g) Remove Last Element</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Deletes the last element from the LinkedList.</p>
+      <pre><code>linkedList.removeLast();</code></pre>
+    </div>
+    
+    <h4>h) Check if an Element Exists</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns <code>true</code> if the element is present in the LinkedList.</p>
+      <pre><code>linkedList.contains(value);</code></pre>
+    </div>
+    
+    <h4>i) Get Size of the LinkedList</h4>
+    <div class="method">
+      <p><strong>Method:</strong> Returns the number of elements in the LinkedList.</p>
+      <pre><code>linkedList.size();</code></pre>
+    </div>
+    
+    <h4>j) Creating a Custom display() Method</h4>
+    <div class="method">
+      <p><strong>Method:</strong> If you need a display() method, you can implement it like this:</p>
+      <pre><code>public void display(LinkedList<Integer> list) {
+    for (Integer num : list) {
+        System.out.print(num + " ");
+    }
+    System.out.println();
+}</code></pre>
+      <p><strong>Call it as:</strong></p>
+      <pre><code>display(linkedList);</code></pre>
+    </div>
+    
+    <div class="footer">Page 11 | Java Data Structures Guide</div>
+  </div>
+</body>
+</html>
